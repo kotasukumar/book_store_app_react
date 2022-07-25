@@ -1,0 +1,18 @@
+{
+    "bookdata":[
+        {
+            "id": "1",
+            "bookName": "You can win",
+            "authoreName": "Shiv Khera",
+            "price": "325",
+            "image": "../BookImages/you-can-win.jpg"
+        },
+        {
+            "id": "2",
+            "bookName": "Mahabarat",
+            "authoreName": "Vyasa",
+            "price": "400",
+            "image": "../BookImages/mahabarat.jpg"
+        }
+    ]
+}
