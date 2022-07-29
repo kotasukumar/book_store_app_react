@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -65,10 +66,11 @@ function Header(props) {
                 onChange={fetchBooks}
                 />
             </Search>
+            <Link to="/home"><Typography color='white'>Home</Typography></Link>
+            <Link to="/login"><Typography color='white'>Logout</Typography></Link>
             <div className='header-options-container'>
                 <div className='header-option'>
-                    <ShoppingCartOutlinedIcon fontSize='small' style={{color: 'white'}}/>
-                    <Typography fontSize='small' className='header-template'>Cart</Typography>
+                    <Link to="/cart"><ShoppingCartOutlinedIcon fontSize='small' style={{color: 'white'}}/></Link>
                 </div>
             </div>
         </div>

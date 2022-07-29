@@ -65,9 +65,9 @@ class BookStoreHome extends Component{
         <div >
         <Box sx={{ maxWidth: 500 }} style={{"marginRight":"10px"}}>
         <Typography className="body" variant='h4' style={{"marginTop":"80px", "textAlign":"left"}}>Books<div className="bookNumber">({this.state.bookArray.length}books)</div>
-        <Box sx={{ maxWidth: 300 }} style={{"marginRight":"10px"}}></Box>   
-      <FormControl fullWidth className="body" style={{"marginRight":"10px"}}>
-        <InputLabel id="demo-simple-select-label" sx={{ maxWidth: 1000 }}>Sort by relevent</InputLabel>
+        <Box sx={{ maxWidth: 300 }} style={{"marginRight":"100px"}}>  
+      <FormControl fullWidth className="body" style={{"marginLeft":"800px"}}>
+        <InputLabel id="demo-simple-select-label" sx={{ maxWidth: 1000 }} >Sort by relevent</InputLabel> 
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -78,7 +78,7 @@ class BookStoreHome extends Component{
           <MenuItem value={1}>Price: High to Low</MenuItem>
           <MenuItem value={2}>Price: Low to High</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl></Box>
       </Typography>
     </Box>
         <Book bookArray={this.state.bookArray} />

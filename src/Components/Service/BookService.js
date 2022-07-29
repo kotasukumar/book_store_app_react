@@ -11,17 +11,6 @@ class BookService{
         return axios.get(`${this.baseUrl}`);
       }
 
-    getPersonById(personId) {
-        return axios.get(`${this.baseUrl}/get/${personId}`);
-      }
-
-    updatePerson(personId,data) {
-        return axios.put(`${this.baseUrl}/put/${personId}`, data);
-      }
-
-    deletePerson(personId) {
-        return axios.delete(`${this.baseUrl}/delete/${personId}`);
-      }
     sortPriceHighToLow() {
         return axios.get(`${this.baseUrl}/sortByPriceHighToLow`);
       }
