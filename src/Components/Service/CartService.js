@@ -26,5 +26,13 @@ class CartService{
     getUserCart(id){
         return axios.get(`${this.baseUrl}/getCartByUserId/${id}`);
     }
+
+    emptyCart(userID){
+        return axios.delete(`${this.baseUrl}/emptyCart/${userID}`);
+    }
+
+    getCartPrice(userID){
+        return axios.get(`${this.baseUrl}/getCartPrice/${userID}`);
+    }
 }
 export default new CartService();

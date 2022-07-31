@@ -10,6 +10,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import './Home.css';
 
+
 class BookStoreHome extends Component{
     constructor(props) {
         super(props);
@@ -62,7 +63,7 @@ class BookStoreHome extends Component{
 
     render(){
     return(
-        <div >
+        <div>
         <Box sx={{ maxWidth: 500 }} style={{"marginRight":"10px"}}>
         <Typography className="body" variant='h4' style={{"marginTop":"80px", "textAlign":"left"}}>Books<div className="bookNumber">({this.state.bookArray.length}books)</div>
         <Box sx={{ maxWidth: 300 }} style={{"marginRight":"100px"}}>  

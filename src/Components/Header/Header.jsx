@@ -5,8 +5,10 @@ import { Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -44,6 +46,15 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }));
+
 function Header(props) {
 
     const fetchBooks = (event) => {
@@ -66,11 +77,23 @@ function Header(props) {
                 onChange={fetchBooks}
                 />
             </Search>
-            <Link to="/home"><Typography color='white'>Home</Typography></Link>
+            {
+              window.location.pathname === '/home' 
+              ?
+              <div></div>
+              :
+              <Link to="/home"><Typography color='white'>Home</Typography></Link>
+              
+            }
+            
             <Link to="/login"><Typography color='white'>Logout</Typography></Link>
             <div className='header-options-container'>
                 <div className='header-option'>
-                    <Link to="/cart"><ShoppingCartOutlinedIcon fontSize='small' style={{color: 'white'}}/></Link>
+                    <Link to="/cart"><IconButton aria-label="cart">
+                      <StyledBadge badgeContent={props.length} style={{"color":"white"}}>
+                      <ShoppingCartIcon />
+                      </StyledBadge>
+                    </IconButton></Link>
                 </div>
             </div>
         </div>

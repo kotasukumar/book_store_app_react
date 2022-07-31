@@ -5,7 +5,6 @@ import { Component } from 'react';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
-import OrderService from '../Service/OrderService';
 
 class Summary extends Component{
     constructor(props) {
@@ -13,12 +12,14 @@ class Summary extends Component{
         this.state = {
             bookArray: [],
             coustomerDetails: false,
-            cartButton: true
+            cartButton: true,
+            cartPrice :[]
         };
     }
 
     componentDidMount(){
         this.getall();
+        this.getCartPrice();
     } 
 
     getall(){
@@ -30,15 +31,24 @@ class Summary extends Component{
         })
     }
 
+    getCartPrice(){
+        CartService.getCartPrice(localStorage.getItem('id')).then((response)=>{
+            this.setState({
+                cartPrice:response.data.data
+            });
+            console.log(response.data.data);
+        })
+    }
+
     placeOrder(){
-        OrderService.placeOrder(localStorage.getItem('id'))
+        CartService.emptyCart(localStorage.getItem('id'))
         alert("Order placed successfully");
     }
 render(){
     return(
         <div style={{"marginTop":"70px", "marginLeft":"10px"}}>
             <Card sx={{ maxWidth: 1000, minHeight:450 }} style={{"marginTop":"20px", margin:"20px"}}>
-        <Typography variant='h4' style={{marginRight:"70rem",marginTop:"1rem" }}>Cart({this.state.bookArray.length})</Typography>
+        <Typography variant='h4' style={{marginRight:"70rem",marginTop:"1rem" }}>Summary({this.state.bookArray.length})</Typography>
         {
             this.state.bookArray.map(book =>
                 <><img src={book.bookImage} width='70' height='90' style={{"marginRight":"55rem", "marginTop":"3rem"}}/>
@@ -49,7 +59,8 @@ render(){
         </CardContent>
         </>  
         )
-        }           
+        }   
+        <Typography sx={{color:"#0A0102", font:"30px/30px Lato"}}>Total Cart price is = Rs.{this.state.cartPrice}</Typography>
         <Link to='/order'><Button sx={{ border: '1px #9D9D9D solid'}} size="large" variant='contained' onClick={()=>this.placeOrder()}
         style={{"display":"flex", "flexDirection":"row", "marginLeft":"50rem", "marginTop":"3rem", "backgroundColor":"#A03037"}}>
             Proceed</Button></Link>

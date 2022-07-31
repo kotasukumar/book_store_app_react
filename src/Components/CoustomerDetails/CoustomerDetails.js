@@ -2,7 +2,7 @@ import { Button, Card, CardContent, Typography } from "@mui/material";
 import './CoustomerDetails.css';
 import TextField from '@mui/material/TextField';
 import { useParams } from 'react-router-dom';
-import React, {useState, useEffect,} from 'react';
+import React, {useState} from 'react';
 import CoustomerService from "../Service/CoustomerService";
 import Summary from "../Summary/Summary";
 
@@ -63,7 +63,6 @@ const CoustomerDetails =() =>{
         <Card sx={{ maxWidth: 1000, minHeight:450 }} style={{"marginTop":"20px", margin:"20px"}}>
             <div className="coustomer_header">
                 <Typography margin='10px'>Coustomer Details</Typography>
-                <Typography  style={{"marginLeft":"1100px", marginTop:"10px"}} className="edit">Edit</Typography>
             </div>
             <div margin="10px">
                 <CardContent className="name_number">
@@ -77,7 +76,7 @@ const CoustomerDetails =() =>{
                 </CardContent>
 
                 <CardContent className="name_number">
-                    <TextField label="address" color="primary"name="address" onChange={onNameChange} value={formValue.address} id="address" focused style={{margin:"10px"}}/>                   
+                    <TextField sx={{"width":450}} label="address" color="primary"name="address" onChange={onNameChange} value={formValue.address} id="address" focused style={{margin:"10px"}}/>                   
                 </CardContent>
 
                 <CardContent className="name_number">
@@ -98,9 +97,9 @@ const CoustomerDetails =() =>{
                 summaryPage?
                 <Summary/>:
                 <div style={{"marginTop":"70px", "marginLeft":"10px"}} className="cart">
-        <Card sx={{ maxWidth: 1500, minHeight:50 }} style={{"marginTop":"20px", margin:"20px"}}>
+        <Card sx={{ maxWidth: 1000, minHeight:50 }} style={{"marginTop":"20px", margin:"20px"}}>
             <div className="coustomer_header">
-                <Typography margin='10px'>Coustomer Details</Typography>
+                <Typography margin='10px'>Summary</Typography>
             </div>
         </Card>
         </div>

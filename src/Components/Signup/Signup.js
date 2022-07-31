@@ -36,12 +36,16 @@ export default function SignUp() {
             userName: event.target.userName.value,
             emailID: event.target.emailID.value,
             password: event.target.password.value,
+            confirm: event.target.confirm_password.value
         }
         console.log(object);
+        if(object.password === object.confirm){
         RegistrationService.addUser(object).then(() =>{
                 alert("Registrated successfully");
                 navigate(`/login`);
-        })
+        })}else{
+          alert("passwords are not matching");
+          }
   };
 
   return (
@@ -93,16 +97,16 @@ export default function SignUp() {
                   id="password"
                 />
               </Grid>
-              {/* <Grid item xs={12}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
+                  name="confirm_password"
                   label="Confirm Password"
-                  id="password"
+                  id="confirm_password"
                   autoComplete="new-password"
                 />
-              </Grid> */}
+              </Grid>
             </Grid>
             <Button
               type="submit"
